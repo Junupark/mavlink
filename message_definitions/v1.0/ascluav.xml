@@ -2,7 +2,7 @@
 <!-- Mavlink Message Definition File for ASCL UAV team -->
 <mavlink>
   <version>1</version>
-  <include>common.xml</include>
+  <!-- <include>common.xml</include> -->
   <enums>
     <enum name="ORBIT_YAW_BEHAVIOUR">
       <description>Yaw behaviour during orbit flight.</description>
@@ -22,11 +22,11 @@
         <description>Yaw controlled by RC input.</description>
       </entry>
     </enum>
-    <!-- The MAV_CMD enum entries describe either: -->
+    <!-- The COMMAND enum entries describe either: -->
     <!--  * the data payload of mission items (as used in the MISSION_ITEM and MISSION_ITEM_INT messages) -->
     <!--  * the data payload of mavlink commands (as used in the COMMAND_INT and COMMAND_LONG messages) -->
     <!-- ALL the entries in the MAV_CMD enum have a maximum of 7 parameters -->
-    <enum name="MAV_CMD">
+    <enum name="ASCL_CMD">
       <description>Commands to be executed by the MAV. They can be executed on user request, or as part of a mission script. If the action is used in a mission, the parameter mapping to the waypoint/mission message is as follows: Param 1, Param 2, Param 3, Param 4, X: Param 5, Y:Param 6, Z:Param 7. This command list is similar what ARINC 424 is for commercial aircraft: A data format how to interpret waypoint/mission data. See https://mavlink.io/en/guide/xml_schema.html#MAV_CMD for information about the structure of the MAV_CMD entries</description>
       <!-- BEGIN ascl defined range (0xd000 to 0xdfff) -->
       <!-- Navigation Cmd: 0xd0xx (=53248~53503) -->
