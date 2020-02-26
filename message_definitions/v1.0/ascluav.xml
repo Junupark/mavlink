@@ -28,7 +28,8 @@
     <!-- ALL the entries in the MAV_CMD enum have a maximum of 7 parameters -->
     <enum name="MAV_CMD">
       <description>Commands to be executed by the MAV. They can be executed on user request, or as part of a mission script. If the action is used in a mission, the parameter mapping to the waypoint/mission message is as follows: Param 1, Param 2, Param 3, Param 4, X: Param 5, Y:Param 6, Z:Param 7. This command list is similar what ARINC 424 is for commercial aircraft: A data format how to interpret waypoint/mission data. See https://mavlink.io/en/guide/xml_schema.html#MAV_CMD for information about the structure of the MAV_CMD entries</description>
-      <!-- BEGIN ascl defined range (50000 to 59999) -->
+      <!-- BEGIN ascl defined range (0xd000 to 0xdfff) -->
+      <!-- Navigation Cmd: 0xd0xx (=53248~53503) -->
       <entry value="16" name="MAV_CMD_NAV_WAYPOINT" hasLocation="true" isDestination="true">
         <description>Navigate to waypoint.</description>
         <param index="1" label="Hold" units="s" minValue="0">Hold time. (ignored by fixed wing, time to stay at waypoint for rotary wing)</param>
@@ -39,7 +40,15 @@
         <param index="6">Longitude</param>
         <param index="7">Altitude</param>
       </entry>
-      <!-- END of ascl defined range (50000 to 59999) -->
+      <!-- Control Cmd: 0xd1xx (=53504~53759) -->
+
+      <!-- Guidance Cmd: 0xd2xx (=53760~54015) -->
+
+      <!-- Mission Cmd: 0xd3xx (=54016~54271) -->
+
+      <!-- OO Cmd: 0xd{N}xx (=54272~) -->
+
+      <!-- END ascl defined range (0xd000 to 0xdfff) -->
     </enum>
   </enums>
   <messages>
